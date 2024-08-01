@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>About Us</title>
+  <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<style>
+  #textAS{
+    font-style: italic; margin: 50px; font-size: 35px; color: yellow; width: 60vw; height: 90vh; margin: auto;
+  }
+  #ASbg{
+    border: black 2px solid; background-color: rgba(0, 0, 0, 0.7); width: 100vw; height: 80vh; justify-content: center; padding-top: 5vh;
+  }
+  @media screen and (max-width:1500px) {
+    #textAS{
+     font-size: 30px;
+    }
+  }
+  @media screen and (max-width:1100px) {
+    #textAS{
+     font-size: 25px;
+    }
+  }
+  @media screen and (max-width:750px) {
+    #textAS{
+     font-size: 20px;
+    }
+  }
+  @media screen and (max-width:500px) {
+    #textAS{
+     font-size: 14px;
+    }
+    #ASbg{
+      padding-top: 3vh;
+    }
+  }
+ 
+ 
+ 
+
+</style>
+<body>
+<div id="nav">
+  <a class = "navs" href="/about-us" id="AS">About Us</a>
+  <a  class = "navs" href="/home"  id="Cool" style="color: yellow;">Cool</a>
+  <img class="navs" id="logo" onclick="window.location.href='/home'" src="/static/poentatanazhivotot.png" >
+  <a class = "navs" href="/home" id="Tour" style="color: yellow;">Tour</a>
+  <a class="navs" th:if="${session.user != null}" th:href="@{/logout}" id="Logout">Logout</a>
+
+  <a class = "navs"  href="/login" id="Log" th:if="${session.user == null}">Log in</a>
+  <a class = "navs" href="/register" id="Reg" th:if="${session.user == null}">Register</a>
+</div>
+<div id="bg">
+
+  <div id="ASbg">
+    <div id="textAS">Оваа веб апликација обезбедува детален преглед на сите
+      културни и историски објекти распределени низ територијата на Република Македонија.
+      Главната цел на апликацијата е да допринесе на развојот на туризмот во Македонија,
+      преку тоа што на мапата се прикажани поголем број објекти, па така корисниците може да одлучат да посетат повејќе од едно место за време на нивното патување.
+      Корисниците исто така може да пребараат според име, координати или пак да филтрираат според категоријата на објекти во која што се заинтересирани.
+      Овој пристап обезбедува флексибилност за корисниците, што ги охрабрува
+      да истражуваат и да го искусат богатството на културното и историско наследство на
+      Република Македонија.</div>
+
+    </div>
+</div>
+</body>
+</html>
