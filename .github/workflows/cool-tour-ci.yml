@@ -1,10 +1,7 @@
 name: CI
 
 on:
-  workflow_run:
-    workflows: ["MegaLinter"]
-    types:
-      - completed
+  push:
 
 jobs:
   on-success:
