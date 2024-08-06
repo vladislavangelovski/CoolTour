@@ -1,4 +1,4 @@
-name: Test for leaked Secrets and CI
+name: CI and notify on Discord and Slack
 
 on:
   push:
