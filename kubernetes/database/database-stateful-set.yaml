@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cool-tour-postgres
+  namespace: cool-tour
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  serviceName: cool-tour-postgres-service
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: postgres
+        namespace: cool-tour
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16
+          envFrom:
+            - configMapRef:
+                name: cool-tour-postgres-config
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: cool-tour-postgres-secrets
+                  key: password
+            - name: POSTGRES_USER
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_USER
+                  name: cool-tour-postgres-config
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  key: POSTGRES_DB
+                  name: cool-tour-postgres-config
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: cool-tour-postgres-data
+  volumeClaimTemplates:
+    - metadata:
+        name: cool-tour-postgres-data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
