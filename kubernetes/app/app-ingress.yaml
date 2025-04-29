@@ -4,12 +4,9 @@ metadata:
   name: cool-tour-app-ingress
   namespace: cool-tour
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-    nginx.ingress.kubernetes.io/proxy-buffering: "off"
-    nginx.ingress.kubernetes.io/affinity: "cookie"                    # Enable sticky sessions
-    nginx.ingress.kubernetes.io/session-cookie-name: "route"           # Session cookie name for sticky sessions
-    nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"            # Hashing method for sticky sessions
-    nginx.ingress.kubernetes.io/secure-backends: "true"                # Secure backend communication
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/service-port: "80"
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   ingressClassName: traefik
   rules:
