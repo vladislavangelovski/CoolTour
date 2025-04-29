@@ -14,7 +14,7 @@
 | 🗺️ **Rich object catalogue** – 380 + heritage objects (lat/long, Wikidata IDs, etc.) already seeded | SQL dump `dump/cool_tour_dump.sql` |
 | 🎨 **Dynamic UI** – background image swaps to match selected category, plus small JS animations | `/static/script.js` & `/templates/home.html` |
 | 👤 **User accounts** – simple registration/login and personal “saved objects” list | `User`, `LoginController`, `RegisterController` |
-| ⚡ **Fast & lightweight** – built with Java 21, Spring Boot 3, Hibernate 6, Thymeleaf, and vanilla JS | `pom.xml` |
+| ⚡ **Fast & lightweight** – built with Java 21, Spring Boot 3, Hibernate 6, Thymeleaf, and vanilla JS | `pom.xml` |
 | ☸️ **Runs anywhere** – Dockerfile, docker‑compose and Kubernetes manifests provided | `Dockerfile` |
 
 
@@ -33,7 +33,7 @@ Spring Boot MVC ──> Thymeleaf views  ←──────── JS/CSS/Imag
 - **Domain model:** `Object` (heritage site) and `User`, linked with a *many‑to‑many* helper table.
 - **Layers:** Controller → Service → Repository pattern for clean separation.
 - **Data:** Pre‑loaded via `dump/cool_tour_dump.sql`; dev profile falls back to an in‑memory H2 DB.
-- **Frontend:** Vanilla JS + CSS served from `/static`; no heavy frameworks.
+- **Frontend:** Vanilla JS + CSS served from `/static`; no heavy frameworks.
 
 ---
 
@@ -41,8 +41,8 @@ Spring Boot MVC ──> Thymeleaf views  ←──────── JS/CSS/Imag
 
 ### 1. Prerequisites
 
-- **Java 21+** and **Maven 3.9+** *(or just Docker)*
-- **PostgreSQL 15+** (optional—H2 works out of the box)
+- **Java 21+** and **Maven 3.9+** *(or just Docker)*
+- **PostgreSQL 15+** (optional—H2 works out of the box)
 
 ### 2. Clone & run (local JVM)
 
@@ -62,7 +62,7 @@ docker build -t cooltour .
 docker run -p 8080:8080 cooltour
 ```
 
-Or spin up the whole stack (app + Postgres) via **docker‑compose**:
+Or spin up the whole stack (app + Postgres) via **docker‑compose**:
 
 ```bash
 docker compose up -d

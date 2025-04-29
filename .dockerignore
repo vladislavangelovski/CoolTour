@@ -1,34 +1,45 @@
-# Include any files or directories that you don't want to be copied to your
-# container here (e.g., local build artifacts, temporary files, etc.).
-#
-# For more help, visit the .dockerignore file reference guide at
-# https://docs.docker.com/go/build-context-dockerignore/
+###############################################################################
+# Reduce build context — keep only what is needed for `docker build`
+###############################################################################
 
-**/.classpath
-**/.dockerignore
-**/.env
-**/.git
-**/.gitignore
-**/.project
-**/.settings
-**/.toolstarget
-**/.vs
-**/.vscode
-**/.next
-**/.cache
-**/*.*proj.user
-**/*.dbmdl
-**/*.jfm
-**/charts
-**/docker-compose*
-**/compose.y*ml
-**/target
-**/Dockerfile*
-**/node_modules
-**/npm-debug.log
-**/obj
-**/secrets.dev.yaml
-**/values.dev.yaml
-**/vendor
+# Version-control & metadata
+.git
+.gitignore
+.github/
+
+# IDE / editor files
+.idea/
+.vscode/
+*.iml
+.settings/
+.project
+.classpath
+
+# Build output & local caches
+target/
+build/
+tmp/
+*.log
+.mvn/timing.properties
+/root/.m2/repository/  # copied into builder via cache mount instead
+
+# OS & editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Docs & local orchestration files (not needed inside the image)
+README*
 LICENSE
-README.md
+compose*.yml
+docker-compose*.yml
+kubernetes/
+
+# Database dumps & test data (keep them in the repo; no need in runtime image)
+dump/
+db/
+
+# Other package managers (if added later)
+node_modules/
+npm-debug.log*
