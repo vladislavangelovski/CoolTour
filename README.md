@@ -1,6 +1,6 @@
 # 🧭 CoolTour
 
-*A Spring Boot web app that helps you explore the cultural‑heritage sites of the Republic of North Macedonia.*
+*A Spring Boot web app that helps you explore the cultural‑heritage sites of the Republic of Macedonia.*
 
 &#x20; &#x20;
 
